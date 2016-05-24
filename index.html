@@ -3,14 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>mini-userProfiles</title>
-    <link rel="stylesheet" href="styles.css"></link>
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body ng-controller="MainController">
     
-    {{thisAppIsBroken}}
-    
+    <div ng-repeat="user in users" ng-class="{favorite: user.isFavorite}">
+			<img ng-src = "{{user.avatar}}">
+			{{user.first_name}}
+			{{user.last_name}}
+			<button ng-click="toggleFavorite(user.id)">Favorite</button>
+	</div>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
      <script src="app.js"></script>
      <script src="controller.js"></script>
+		<script src="mainService/mainService.js"></script>
 </body>
 </html>
